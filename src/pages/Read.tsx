@@ -14,7 +14,49 @@ function Read(): React.JSX.Element {
 
     const navigate: NavigateFunction = useNavigate();
 
-    const [currentScale, setCurrentScale] = useState<number>(1.0);
+    const scaleConfig: number[] = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0];
+    const [currentScaleIndex, setCurrentScaleIndex] = useState<number>(0);
+    const [originalScale, setOriginalScale] = useState<{
+        width: number;
+        height: number;
+    }>({
+        width: 1280,
+        height: 0,
+    });
+    const [imgScale, setImgScale] = useState<{
+        width: number;
+        height: number;
+    }>({
+        width: 0,
+        height: 0,
+    });
+
+    useEffect(() =>{
+        setImgScale({
+            width: originalScale.width * scaleConfig[currentScaleIndex],
+            height: originalScale.height * scaleConfig[currentScaleIndex]
+        });
+    }, [currentScaleIndex]);
+
+    function changeScale(mode: "zoom-in" | "zoom-out" | "reset"): void {
+        if(mode === "zoom-out"){
+            setCurrentScaleIndex(prev => {
+                if(currentScaleIndex === 0) return prev;
+                return prev - 1;
+            });
+        }
+        else if(mode === "zoom-in"){
+            setCurrentScaleIndex(prev => {
+                if(currentScaleIndex === scaleConfig.length - 1) return prev;
+                return prev + 1;
+            });
+        }
+        else if(mode === "reset"){
+            setCurrentScaleIndex(0);
+        }
+    }
+
+    
     const [portfolioDetailsData, setPortfolioDetailsData] = useState<PortfolioData | null>(null);
     const [imgSource, setImgSource] = useState<string>("");
 
@@ -54,7 +96,6 @@ function Read(): React.JSX.Element {
     }
 
     function Control(): React.JSX.Element {
-        const { zoomIn, zoomOut, resetTransform } = useControls();
         return(
             <div className="flex flex-row bg-[#383838] justify-between h-11">   
                 <div className="flex items-center justify-self-start text-[#f5f5f5] hover:bg-[#525252] cursor-pointer duration-300" onClick={() => changePage("back")}>
@@ -80,13 +121,13 @@ function Read(): React.JSX.Element {
                     </div>
                 </div>
                 <div className="flex items-center justify-self-end">
-                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => zoomOut()}>
+                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => changeScale("zoom-out")}>
                         <FontAwesomeIcon className="px-4" icon={faMagnifyingGlassMinus} />
                     </div>
-                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => resetTransform()}>
-                        <span className="text-sm font-semibold px-4">{currentScale}x</span>
+                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => changeScale("reset")}>
+                        <span className="text-sm font-semibold px-4">{scaleConfig[currentScaleIndex]}x</span>
                     </div>
-                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => zoomIn()}>
+                    <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => changeScale("zoom-in")}>
                         <FontAwesomeIcon className="px-4" icon={faMagnifyingGlassPlus} />
                     </div>
                     <div className="sm:flex hidden px-5"></div>
@@ -100,28 +141,17 @@ function Read(): React.JSX.Element {
 
     return(
         <>
-            <TransformWrapper
-                initialScale={1}
-                centerOnInit={false}
-                wheel={{
-                    disabled: true
-                }}
-                onTransformed={(ref: ReactZoomPanPinchRef, state: { scale: number; positionX: number; positionY: number; }) => String(state.scale).length <= 4 ? setCurrentScale(state.scale) : null}
-            >
-            {({ zoomIn, zoomOut, resetTransform }) => (
-                <>
-                    {/* <Control /> */}
-                    <TransformComponent wrapperStyle={{ width: "100%"}}>
-                        <div className="flex flex-col items-center bg-[#262626] min-h-screen mb-12">
-                            <img src={imgSource} alt="read" />
-                        </div>
-                    </TransformComponent>
-                    <div className="fixed z-20 bottom-0 w-full">
-                        <Control />
-                    </div>
-                </>
-            )}
-            </TransformWrapper>
+            <Control />
+            <div className={`${currentScaleIndex <= 3 ? "items-center":""} flex flex-col overflow-x-auto overflow-y-visible h-auto `}>
+                <img width={imgScale.width} height={imgScale.height} onLoad={(event) =>{
+                    const img: HTMLImageElement = event.target as HTMLImageElement;
+                    setOriginalScale({
+                        width: img.width,
+                        height: img.height
+                    });
+                }} className="lg:max-w-[300%] max-w-full bg-[#262626] overflow-clip" src={imgSource} alt="read" />
+            </div>
+            <Control />
         </>
     );
 }

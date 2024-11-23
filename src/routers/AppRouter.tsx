@@ -5,17 +5,10 @@ import Read from "../pages/Read";
 import Details from "../pages/Details";
 import { useEffect } from "react";
 import ReadLayout from "../layouts/ReadLayout";
-import Example from "../pages/Example";
 
 function AppRouter(): React.JSX.Element {
     return(
         <Routes>
-            <Route 
-                path={'/ex'} 
-                element={
-                    <Example />
-                } 
-            />
             <Route 
                 path={'/'} 
                 element={
