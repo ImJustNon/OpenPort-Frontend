@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'DB Heavent Condensed';
+    src: url('./assets/fonts/DB-Heavent-Cond/DB_Heavent_Cond.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'FC Home Regular';
+    src: url('./assets/fonts/FC-Home/FC Home Regular ver 1.01.ttf') format('truetype');
+}
+
+/* * {
+    font-family: 'DB Heavent Condensed', sans-serif;
+} */
