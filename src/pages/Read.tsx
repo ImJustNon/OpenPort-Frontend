@@ -97,11 +97,13 @@ function Read(): React.JSX.Element {
 
     function Control(): React.JSX.Element {
         return(
-            <div className="flex flex-row bg-[#383838] justify-between h-11">   
-                <div className="flex items-center justify-self-start text-[#f5f5f5] hover:bg-[#525252] cursor-pointer duration-300" onClick={() => changePage("back")}>
+            <div className="grid grid-cols-7 sm:grid-cols-4 bg-[#383838] justify-between h-11">   
+                {/* Left */}
+                <div className="col-span-1 flex items-center justify-self-start text-[#f5f5f5] hover:bg-[#525252] cursor-pointer duration-300" onClick={() => changePage("back")}>
                     <FontAwesomeIcon className="px-4" icon={faReply} />
                 </div>
-                <div className="flex items-center justify-center">
+                {/* Middle */}
+                <div className="col-span-5 sm:col-span-2 flex items-center justify-center">
                     <div className="flex items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => changePage("start")}>
                         <FontAwesomeIcon className="px-4" icon={faAnglesLeft} />
                     </div>
@@ -120,7 +122,8 @@ function Read(): React.JSX.Element {
                         <FontAwesomeIcon className="px-4" icon={faAnglesRight} />
                     </div>
                 </div>
-                <div className="flex items-center justify-self-end">
+                {/* Right */}
+                <div className="col-span-1 flex items-center justify-self-end">
                     <div className="sm:flex hidden items-center h-full text-[#f5f5f5] hover:bg-[#525252] duration-300 cursor-pointer" onClick={() => changeScale("zoom-out")}>
                         <FontAwesomeIcon className="px-4" icon={faMagnifyingGlassMinus} />
                     </div>
