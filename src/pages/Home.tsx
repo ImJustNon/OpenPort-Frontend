@@ -27,7 +27,7 @@ function Home(): React.JSX.Element {
 
     return(
         <>
-            <div className="flex flex-col bg-[#1f1f1f] rounded-md p-3 justify-center">
+            <div className="flex flex-col bg-[#1f1f1f] rounded-md p-3 justify-center mb-5">
                 <div className="flex flex-row items-center justify-center gap-2 first-letter:text-[#cad7dd] font-bold text-xl text-[#ccd8dc] my-4">
                     <FontAwesomeIcon icon={faFireFlameCurved} className="text-[#ed2553]" />
                     <p>Popular Now</p>

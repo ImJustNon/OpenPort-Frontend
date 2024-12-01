@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactNode } from "react";
 import Navbar from "../components/Navbar";
 import Headroom from "react-headroom";
+import Footer from "../components/Footer";
 
 function AppLayout({children}: {children: ReactNode;}): React.JSX.Element {
     return(
@@ -19,6 +20,8 @@ function AppLayout({children}: {children: ReactNode;}): React.JSX.Element {
                     }
                     return child;
                 })}
+
+                <Footer />
             </div>
         </>
     );

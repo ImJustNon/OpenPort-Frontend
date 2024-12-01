@@ -14,3 +14,23 @@
 /* * {
     font-family: 'DB Heavent Condensed', sans-serif;
 } */
+
+
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: black;
+}
+
+::-webkit-scrollbar-thumb {
+	background: white;
+	border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: white;
+	border-radius: 50px;
+}

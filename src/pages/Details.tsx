@@ -30,7 +30,7 @@ function Details(): React.JSX.Element {
         <>
             <div className="grid grid-cols-1 lg:grid-cols-2 bg-[#1f1f1f] rounded-md px-5 py-8 mb-5">
                 <div className="lg:mb-0 mb-5 w-full">
-                    <img className="lg:w-[60%] w-[350px] h-[494px] mx-auto rounded-md" src={portDetails?.sources.cover} alt={portDetails?.id} />
+                    <img className="lg:w-[60%] w-[350px] mx-auto rounded-md" src={portDetails?.sources.cover} alt={portDetails?.id} />
                 </div>
                 <div className="p-3 flex flex-col flex-wrap gap-4">
                     <p className="font-bold text-[#909091] text-xl">{portDetails?.name}</p>
