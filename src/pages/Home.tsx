@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
+import SkeletonCard from "../components/Skeleton/SkeletonCard";
 
 
 
@@ -13,6 +14,7 @@ import { Link } from "react-router-dom";
 
 function Home(): React.JSX.Element {
     const [popularPort, setPopularPort] = useState<PortfolioData[]>([]);
+    const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
     useEffect(() =>{
         (async() =>{
@@ -21,7 +23,11 @@ function Home(): React.JSX.Element {
                     "Content-Type": "application/json"
                 }
             });
-            setPopularPort(response.data.data);
+
+            if(response.data.status === "OK"){
+                setPopularPort(response.data.data);
+                setIsLoaded(true);
+            }
         })();
     }, []);
 
@@ -33,11 +39,22 @@ function Home(): React.JSX.Element {
                     <p>Popular Now</p>
                 </div>
                 <div className="sm:grid-cols-3 lg:grid-cols-5 grid-cols-2 grid justify-center gap-x-2 gap-y-3">
-                    {popularPort.map((port: PortfolioData , i: number) => (
-                        <Link to={`/g/${port.id}`} key={i}>
-                            <Card imageUrl={port.sources.cover} title={port.name} language={port.language}/>
-                        </Link>
-                    ))}
+                    {isLoaded ? 
+                        <>
+                            {popularPort.map((port: PortfolioData , i: number) => (
+                                <Link to={`/g/${port.id}`} key={i}>
+                                    <Card imageUrl={port.sources.cover} title={port.name} language={port.language}/>
+                                </Link>
+                            ))}
+                        </>
+                        : 
+                        <>
+                            {"iiiiiiiii".split("").map((v, i) =>(
+                                <SkeletonCard key={i} />
+                            ))}
+                        </>
+                    }
+                    
                 </div>
             </div>
         </>
