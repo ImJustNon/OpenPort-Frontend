@@ -11,9 +11,9 @@ function SkeletonDetails(): React.JSX.Element {
                     }} height={"85%"} marginX={"auto"} rounded={"md"} />
                 </div>
                 <div className="p-3 flex flex-col flex-wrap gap-4">
-                    <p className="font-bold text-[#909091] text-xl"><Skeleton height={9} width={"90%"} /></p>
-                    <p className="font-medium text-[#909091] text-lg"><SkeletonText noOfLines={2} gap="4" /></p>
-                    <p className="font-medium text-[#909091] text-lg cursor-pointer"><Skeleton height={6} width={"10%"} /></p>
+                    <div className="font-bold text-[#909091] text-xl"><Skeleton height={9} width={"90%"} /></div>
+                    <div className="font-medium text-[#909091] text-lg"><SkeletonText noOfLines={2} gap="4" /></div>
+                    <div className="font-medium text-[#909091] text-lg cursor-pointer"><Skeleton height={6} width={"10%"} /></div>
                     <div className="flex flex-col gap-4">
                         <Skeleton height={6} width={"80%"} />
                         <Skeleton height={6} width={"50%"} />

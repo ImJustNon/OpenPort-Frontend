@@ -5,6 +5,7 @@ import Read from "../pages/Read";
 import Details from "../pages/Details";
 import { useEffect } from "react";
 import ReadLayout from "../layouts/ReadLayout";
+import NotFound404 from "../pages/NotFound404";
 
 function AppRouter(): React.JSX.Element {
     return(
@@ -36,6 +37,12 @@ function AppRouter(): React.JSX.Element {
             <Route 
                 path={'/random'} 
                 element={<RandomPortfolio />} 
+            />
+            <Route 
+                path={"*"}
+                element={
+                    <NotFound404 />
+                }
             />
         </Routes>
     );
