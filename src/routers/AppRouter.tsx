@@ -6,6 +6,7 @@ import Details from "../pages/Details";
 import { useEffect } from "react";
 import ReadLayout from "../layouts/ReadLayout";
 import NotFound404 from "../pages/NotFound404";
+import Login from "../pages/Login";
 
 function AppRouter(): React.JSX.Element {
     return(
@@ -37,6 +38,18 @@ function AppRouter(): React.JSX.Element {
             <Route 
                 path={'/random'} 
                 element={<RandomPortfolio />} 
+            />
+            <Route 
+                path={'/login'} 
+                element={<Login formType="LOGIN" />} 
+            />
+            <Route 
+                path={'/register'} 
+                element={<Login formType="REGISTER" />} 
+            />
+            <Route 
+                path={'/reset'} 
+                element={<Login formType="RESET" />} 
             />
             <Route 
                 path={"*"}

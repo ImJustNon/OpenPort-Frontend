@@ -3,11 +3,14 @@ import logo from "../assets/non.png";
 import { Input, useDisclosure } from "@chakra-ui/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faChevronDown, faMagnifyingGlass, faPenToSquare, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link, NavigateFunction, useNavigate } from "react-router-dom";
+import { Link, Location, NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import MobileNavDrawer from "../components/MobileNavDrawer";
 
 function Navbar(): React.JSX.Element {
+    const location: Location = useLocation();
+    const pathname: string | null = (location.pathname).length <= 1 ? null : location.pathname;
+
     const navigate: NavigateFunction = useNavigate();
     const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(false);
     const [isMobileNavMenuOpen, setIsMobileNavMenuOpen] = useState<boolean>(false);
@@ -57,14 +60,14 @@ function Navbar(): React.JSX.Element {
                 {/* Spacer */}
                 <div className="sm:flex hidden grow"></div>
                 {/* Right Menu */}
-                <div className="sm:flex hidden items-center h-full px-2 gap-x-2 cursor-pointer text-[#d9d9d9] bg-[#383838] duration-300 hover:bg-[#414141]">
+                <Link to={pathname ? `/login?redirect=${pathname}` : "/login"} className="sm:flex hidden items-center h-full px-2 gap-x-2 cursor-pointer text-[#d9d9d9] bg-[#383838] duration-300 hover:bg-[#414141]">
                     <FontAwesomeIcon icon={faRightToBracket} /> 
                     <p>Sign in</p>
-                </div>
-                <div className="sm:flex hidden items-center h-full px-2 gap-x-2 cursor-pointer text-[#d9d9d9] bg-[#ed2553] duration-300 hover:bg-[#ff4c76]">
+                </Link>
+                <Link to={pathname ? `/register?redirect=${pathname}` : "/register"} className="sm:flex hidden items-center h-full px-2 gap-x-2 cursor-pointer text-[#d9d9d9] bg-[#ed2553] duration-300 hover:bg-[#ff4c76]">
                     <FontAwesomeIcon icon={faPenToSquare} />
                     <p>Register</p>
-                </div>
+                </Link>
             </div>
 
             <MobileNavDrawer isOpen={mobileNavDrawerDisclosureIsOpen} onOpen={mobileNavDrawerDisclosureOnOpen} onClose={mobileNavDrawerDisclosureOnClose} />
