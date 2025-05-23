@@ -57,7 +57,7 @@ function Details(): React.JSX.Element {
                         </div>
                         <div className="flex flex-row mt-5 gap-2">
                             <div className="px-3 py-2 bg-[#ed2553] text-[#d9d9d9] flex rounded-md font-bold items-center gap-2 cursor-pointer hover:bg-[#ff4974] duration-300"><FontAwesomeIcon icon={faHeart} /><span>Favorite</span></div>
-                            <div className="px-3 py-2 bg-[#4d4d4d] text-[#d9d9d9] flex rounded-md font-bold items-center gap-2 cursor-pointer hover:bg-[#636363] duration-300"><FontAwesomeIcon icon={faDownload} /><span>Download</span></div>
+                            <a href={`https://openport-backend.vercel.app/api/v1/portfolio/download/${portDetails?.id}`} className="px-3 py-2 bg-[#4d4d4d] text-[#d9d9d9] flex rounded-md font-bold items-center gap-2 cursor-pointer hover:bg-[#636363] duration-300"><FontAwesomeIcon icon={faDownload} /><span>Download</span></a>
                         </div>
                     </div>
                 </div>
