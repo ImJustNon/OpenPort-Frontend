@@ -56,7 +56,7 @@ function Navbar(): React.JSX.Element {
                 <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Characters</div>
                 <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Parodies</div>
                 <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Groups</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Info</div>
+                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Info</div> 
                 {/* Spacer */}
                 <div className="sm:flex hidden grow"></div>
                 {/* Right Menu */}
