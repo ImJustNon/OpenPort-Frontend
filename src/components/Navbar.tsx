@@ -42,21 +42,21 @@ function Navbar(): React.JSX.Element {
                     <FontAwesomeIcon icon={faChevronDown} />
                     <div hidden={!isNavMenuOpen} className="absolute top-12 left-[-15px] bg-[#383838] rounded-md flex flex-col gap-0 font-medium">
                         <Link to={"/random"} className="hover:bg-[#464646] py-1 px-3 pt-2 rounded-t-md">Random</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3">Tags</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3">Artists</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3">Characters</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3">Parodies</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3">Groups</Link>
-                        <Link to={"#"} className="hover:bg-[#464646] py-1 px-3 pb-2 rounded-b-md">Info</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3">Tags</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3">Artists</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3">Characters</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3">Parodies</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3">Groups</Link>
+                        <Link to={"/idk"} className="hover:bg-[#464646] py-1 px-3 pb-2 rounded-b-md">Info</Link>
                     </div>
                 </div>
                 <Link to={"/random"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Random</Link>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Tags</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Artists</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Characters</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Parodies</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Groups</div>
-                <div className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Info</div> 
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Tags</Link>
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Artists</Link>
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Characters</Link>
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Parodies</Link>
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Groups</Link>
+                <Link to={"/idk"} className="lg:flex hidden items-center h-full text-[#cdd3cb] px-2 duration-300 hover:bg-[#323232] cursor-pointer">Info</Link> 
                 {/* Spacer */}
                 <div className="sm:flex hidden grow"></div>
                 {/* Right Menu */}

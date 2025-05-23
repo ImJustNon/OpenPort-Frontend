@@ -36,27 +36,27 @@ function MobileNavDrawer({ isOpen, onClose, onOpen }: { isOpen: boolean; onClose
         
                     <DrawerBody className="flex flex-row justify-center items-center">
                         <div className="flex flex-col gap-2">
-                            <div className="px-5 py-3 text-center text-white">
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Random
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Tags
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Artists
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Characters
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Parodies
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Groups
-                            </div>
-                            <div className="px-5 py-3 text-center text-white">
+                            </Link>
+                            <Link to={"/idk"} className="px-5 py-3 text-center text-white">
                                 Info
-                            </div>
+                            </Link>
                         </div>
                     </DrawerBody>
         
